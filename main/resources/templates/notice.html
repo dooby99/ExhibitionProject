@@ -1,0 +1,90 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<th:block>
+  <script th:src="@{http://code.jquery.com/jquery.js}"></script>
+  <!--            <script th:href="@{/js/write.js}"></script>-->
+</th:block>
+<script src="js/board.js"></script>
+<link rel="stylesheet" href="css/board.css">
+<body>
+<th:block layout:fragment="header" th:include="@{/header}"></th:block>
+
+  <main id="mid">
+    <div class="row featurette">
+      <div class="content">
+        <h2>공지사항</h2>
+<!--        <div th:if="${pagenation.getTotalBoardCnt() == 0}">-->
+          <p>작성된 글이 존재하지 않습니다.</p>
+        </div>
+<!--        <div th:unless="${pagenation.getTotalBoardCnt() == 0}">-->
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>글 번호</td>
+                <td>제목</td>
+                <td>작성자</td>
+                <td>날짜</td>
+                <td>조회수</td>
+              </tr>
+            </thead>
+<!--            <tbody>-->
+
+<!--              <tr th:each="board : ${pagenation.getBoardNoticeList()}" style="cursor:pointer"-->
+<!--                th:onclick="'location.href=\''+@{/notice/{bNo}(bNo=${board.getId()})}+'\';'">-->
+<!--                <td th:text="${board.getId()}"></td>-->
+<!--                <td th:text="${board.getTitle()}"></td>-->
+<!--                <td th:text="${board.getWriter().getName()}"></td>-->
+<!--                <td th:text="${#temporals.format(board.getRegDate(), 'yyyy-MM-dd HH:mm')}"></td>-->
+<!--                    <td th:text="${board.getViews()}"></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+            </table>
+
+            <!-- 페이지네이션 -->
+<!--            <div id="pagenation">-->
+<!--                <a th:each="index : ${#numbers.sequence(1, {pagenation.getTotalPageCnt()})}" th:text="${index}"-->
+<!--                  th:href="@{/notice?p={i}(i=${index})}"></a> &lt;!&ndash; th:href="@{/templates/board_notice?p={i}(i=${index})}" &ndash;&gt;-->
+<!--            </div>-->
+        </div>
+
+        <!-- 검색 기능 -->
+          <div id="search">
+            <div class="align-right">
+              <form th:action="@{/notice}" type="get" class="search-right" >
+                  <input type="text" name="query" id="searchQuery" placeholder="제목 및 내용을 입력해주세요." style="width:230px; height:37px; border-radius:0.375rem;border-width:thin; vertical-align:middle;">
+                  <button type="button" class="btn btn-secondary" id="NtcSearchBtn">검색</button>
+              </form>
+
+            </div>
+          </div>
+
+
+
+      </div>
+    </div>
+    
+  </main>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <!-- link add -->
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+		xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{config :: configFragment}"></head>
+<th:block>
+    <script th:src="@{http://code.jquery.com/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/js/comment.js}"></script>
+    <script type="text/javascript" th:src="@{/js/view.js}"></script>
+</th:block>
+<link rel="stylesheet" href="css/board.css">
+    <style>
+        .commentBox{
+            border: black 1px solid;
+        }
+    </style>
+</head>
+<body>
+<th:block layout:fragment="header" th:include="@{/header}"></th:block>
+
+<main id="mid" style="width:1100px; margin:30px auto;">
+
+    <div class="content">
+        <h2>커뮤니티</h2>
+        <div class="row">
+            <table class="table">
+                <input type="text" id="boardId" th:value="${board.getNo()}" hidden="hidden">
+                <tr>
+                    <th width=200px class="text-center">제목</th>
+                    <td th:text="${board.getTitle()}"></td>
+                    <th width=200px class="text-center">조회수</th>
+                    <td th:text="${board.getViews()}"></td>
+                </tr>
+                <tr>
+                    <th width=200px class="text-center">작성자</th>
+                    <td th:text="${board.getName().getName()}"></td>
+                    <th width=200px class="text-center">작성시간</th>
+                    <td th:text="${#temporals.format(board.getCreateT(), 'yyyy-MM-dd HH:mm')}"></td>
+                </tr>
+                <tr>
+                    <th width=200px class="text-center">내용</th>
+                    <td th:text="${board.getContent()}" colspan="3">
+                    </td>
+                </tr>
+
+            </table>
+            <input type=button value="목록으로" class="btn btn-secondary" id="list_back">
+            <!--        <input type=button value="수정하기" class="btn btn-outline-secondary">-->
+            <!--        <input type=button value="삭제하기" class="btn btn-outline-secondary">-->
+
+            <div class="updateBtns" sec:authorize="isAuthenticated()">
+                <ul class="align-right" th:if="${session.userInfo.getId() == board.getName().getId()}">
+                    <form th:action="@{/view/update}" th:type="post" id="impUpdateForm">
+                        <input type="text" id="updateForm_boardId" name="boardId" th:value="${board.getNo()}"
+                               hidden="hidden">
+                        <input type="submit" id="updateBtn" value="수정">
+                    </form>
+
+                    <form th:action="@{/view/delete}" th:type="post" id="impDeleteForm">
+                        <input type="text" id="deleteForm_boardId" name="boardNo" th:value="${board.getNo()}"
+                               hidden="hidden">
+                        <input type="button" id="deleteBtn" th:value="삭제">
+                    </form>
+                </ul>
+
+            </div>
+
+            <div id="impCommentWriteForm">
+                <h2>댓글 작성</h2>
+                <input id="comContent" type="text" name="writeContent">
+                <input id="memNo" type="text" name="memNo" hidden="hidden" th:value="${session.userInfo.getId()}">
+                <button id="comWriteBtn" type="button">작성</button>
+            </div>
+
+            <!-- 댓글 리스트 불러오기 -->
+            <h2>댓글 목록</h2>
+            <div id="comList">
+
+            </div>
+        </div>
+    </div>
+
+
+</main>
+<script src="js/write.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

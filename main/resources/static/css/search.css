@@ -1,0 +1,22 @@
+.search-title-text{
+    text-align: center;
+    line-height: 65px;
+  }
+  .search-keyword{
+    color: rgb(183, 30, 3);
+  }
+  .text-muted{
+    display: inline-flex;
+    right:0;
+  }
+  #mid {
+    margin-top: 60px;
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }

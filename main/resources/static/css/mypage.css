@@ -1,0 +1,43 @@
+        .row {
+        margin: 0px auto;
+        width: 700px;
+        }
+
+
+
+        *{
+        padding: 0;
+        margin: 0;
+        border: none;
+        }
+
+        body {
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        }
+        .login-wrapper{
+        width: 400px;
+        height: 350px;
+        padding: 40px;
+        box-sizing: border-box;
+        display: block;
+        }
+        .card mb-3{
+            margin:0 auto;
+        }
+
+        header .breadcrumb-item text-end{
+            text-decoration: none;
+        }
+
+
+        .d-flex {
+          width: 450px;
+        }
+
+        #mid {
+            margin-top: 60px;
+          }
+        #mid .container{
+            width: 600px;
+        }

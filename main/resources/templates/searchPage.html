@@ -1,0 +1,74 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}">
+
+<head th:insert="~{config :: configFragment}"></head>
+<th:block>
+  <script th:src="@{http://code.jquery.com/jquery.js}"></script>
+  <!--            <script th:href="@{/js/write.js}"></script>-->
+</th:block>
+<link rel="stylesheet" href="/css/search.css">
+<body>
+<th:block layout:fragment="header" th:include="@{/header}"></th:block>
+ <main id="mid">
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h2 class="search-title-text fw-bolder">검색 결과</h2> 
+      <!--검색 -->
+      <div class="content align-right">
+        <form class="d-inline-flex p-3" role="search" method="get" action="/search-page">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" th:value="${query}">
+          <button class="btn btn-outline-success" type="submit" onclick="location.href='/search-page?query=${query}'">Search</button>
+        </form>
+          <p>"<strong class="search-keyword" th:text="${searchKeyword}"></strong>"에 대한 검색 결과는 <strong class="search-keyword" th:text="'총 ' + ${searchCount} + '건'"></strong> 입니다</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div th:if="${exhibitionList.isEmpty()}">
+        <p>검색 결과 없음</p>
+      </div>
+      <div th:unless="${exhibitionList.isEmpty()}" class="row row-cols-1 row-cols-md-3 g-4">
+        <div th:each="exhibition, iterStat : ${exhibitionList}" class="col">
+          <div class="card shadow-sm">
+            <img th:src="${thumbnailList[iterStat.index]}" onerror="this.src='/img/default-image.png'" width="100%" height="225" style="object-fit: cover;
+            border-radius: 5px 5px 0px 0px;">
+            <div class="card-body">
+              <h5 class="card-title" th:text="${exhibition.getSubject()}"></h5>
+              <p class="card-text" th:text="${exhibition.getStartDate()} + ' ~ ' + ${exhibition.getEndDate()}"></p>
+              <p class="card-text" th:text="${exhibition.getPlace}"></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <form method="GET" action="/exhibition">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary" name="subject" th:value="${exhibition.getSubject()}" th:text="View"></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" th:text="Edit"></button>
+                    <input type="hidden" name="startDate" th:value="${exhibition.getStartDate()}" />
+                    <input type="hidden" name="endDate" th:value="${exhibition.getEndDate()}" />
+                    <input type="hidden" name="place" th:value="${exhibition.getPlace()}" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- If there are more than 3 exhibitions in the current row or this is the last exhibition, close the current row -->
+          <!-- and start a new row -->
+          <div th:if="${iterStat.count % 3 == 0 or iterStat.last}" class="w-100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ </main>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

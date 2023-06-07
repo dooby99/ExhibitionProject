@@ -1,0 +1,115 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="~{config :: configFragment}">
+</head>
+<script src="js/join.js"></script>
+
+<link rel="stylesheet" href="js/join.js">
+<link rel="stylesheet" href="css/join.css">
+<body>
+<th:block layout:fragment="header" th:include="@{/header}"></th:block>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">BODA</a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/main">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/community">커뮤니티</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/notice">공지사항</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search">
+                    <button
+                            class="btn btn-outline-success"
+                            type="submit"
+                            onclick="document.location.href='http://localhost:8080/search-page'">Search                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="wrap" class="wrapper">
+
+    <form method="post" action="/save" name="join" id="join">
+        <header>
+            <div id="header">
+                <h1 class="h_loho">
+                    <span><img alt="" src="/img/KakaoTalk_20230321_195658166_02.png"></span>
+                </h1>
+            </div>
+        </header>
+
+        <div id="container">
+
+            <div class="row_group">
+                <div class="userInput2">
+                    <h3 class="list">성명<span id="nameError"></span></h3>
+                    <span class="box int_id"><input type="text" name="name" id="name" class="int check" maxlength="20"
+                                                    placeholder="성명">
+                                <span class="step_url"><img src="/img/badge.png" alt="" class="lock_img"></span></span>
+                </div>
+                <div class="userInput">
+                    <!-- 비밀번호 입력 -->
+                    <h3 class="list">비밀번호<span id="pwError"></span></h3>
+                    <span class="box int_id"><input type="password" id="pw" class="int check" maxlength="20" placeholder="비밀번호">
+                                <span class="step_url"><img src="/img/Lock.png" alt="" class="lock_img"></span>
+                            </span>
+                </div>
+                <!-- 비밀번호 재확인 입력 -->
+                <div class="userInput">
+                    <h3 class="list">비밀번호 재확인<span id="pwCheckError"></span></h3>
+                    <span class="box int_id"><input type="password" name="password" id="pwCheck" class="int check" maxlength="20" placeholder="비밀번호 재확인">
+                                <span class="step_url2"><img src="/img/Lock_reset.png" alt="" class="check_img"></span></span>
+                </div>
+            </div>
+
+            <!-- 이메일 입력 -->
+            <div class="userInput">
+                        <h3 class="list_email">이메일<span id="emailError"></span></h3>
+                        <span class="emailInt" id="email 1"><input type="text" name="email" maxlength="20" class="check" id="email" placeholder="이메일">
+
+                        </span>
+            </div>
+            <div class="btn_area">
+                <input
+                        type="submit"
+                        value="가입하기"
+                        id="btnJoin"
+                        class="btn btn-outline-secondary"
+                        style=" width: 367px; height: 50px ">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

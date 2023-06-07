@@ -1,0 +1,466 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.d-flex {
+    width: 450px;
+}
+
+
+#mid {
+    margin-top: 60px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.row {
+    margin: 0px auto;
+    width: 700px;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h2 {
+    font-size: 36px;
+    word-break: keep-all;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.sub-tit01 {
+    text-align: center;
+    /* font-size: 2.250em; */
+    font-size: 36px;
+    color: #111;
+    padding: 40px 0;
+}
+
+.intro-top .img-box img {
+
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+
+.intro-top {
+    margin-bottom: 60px;
+    display: flex;
+    position: relative;
+    padding: 0 0 0 655px;
+    min-height: 380px
+}
+
+
+@media (max-width: 768px) {
+    intro-top .img-box {
+        width: 100%;
+    }
+}
+
+
+.intro-top .txt-box .event-title h2 {
+    font-size: 32px;
+    line-height: 1.3;
+}
+
+.type-box li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.type-box>ul>li {
+    padding-left: 6.3em;
+}
+
+.type-box>ul>li {
+    position: relative;
+    padding-left: 260px;
+}
+
+
+
+.type-box .type-th {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100%;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    display: block;
+}
+
+.type-box .type-th {
+    width: 5.8em;
+}
+
+.type-th {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.type-th>* {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.type-box .type-th span {
+    font-size: 0.8em;
+}
+
+.type-box li .type-td {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    min-height: 68px;
+    line-height: 1.8;
+    letter-spacing: -0.05em;
+    font-size: 16px;
+    word-break: keep-all;
+}
+
+.type-box>ul>li .type-td {
+    padding: 1em;
+}
+
+.type-box {
+    font-size: 1.125rem;
+    width: 100%
+}
+
+.intro-top {
+    padding-left: 0;
+    display: block;
+}
+
+.intro-top {
+    margin-bottom: 60px;
+    display: flex;
+    position: relative;
+    padding: 0 0 0 655px;
+    min-height: 380px;
+}
+
+.intro-top {
+    padding-left: 0;
+    display: block;
+}
+
+.intro-top .img-box {
+
+    left: 0;
+    top: 0;
+    width: 575px;
+    height: 70%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+
+}
+
+
+
+.intro-top .img-box {
+    position: relative;
+    float: left;
+    /* width: 41 */
+    /* display: block; */
+    width: auto;
+    height: auto;
+
+}
+
+
+.intro-top .img-box .img {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+
+}
+
+
+.intro-top .txt-box {
+    float: right;
+    width: 35%;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.intro-top .txt-box .event-title .type {
+    letter-spacing: 0;
+}
+
+.type-box>ul>li {
+    position: relative;
+    padding-left: 260px;
+}
+
+.type-box li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.type-box>ul>li {
+    padding-left: 6.3em;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.detail-btn a {
+    width: 100%;
+}
+
+.detail-btn a {
+    display: block;
+    width: 275px;
+    line-height: 65px;
+    text-align: center;
+    font-size: 1em;
+    background: #111 url() no-repeat right 9px bottom 9px;
+    color: #fff;
+}
+
+.type-box>ul>li {
+    padding-left: 150px;
+}
+
+.type-box .type-th {
+    width: 140px
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+@media screen and (max-width: 1400px) {
+    .sub-wrap {
+        margin: 0 !important;
+    }
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.common-section h3 {
+    font-size: 30px;
+    color: #111;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.intro-top {
+
+    margin-bottom: 60px;
+
+}
+
+.blog{
+    margin-top: 30px;
+    padding: 0 0 0 32px;
+}
+.blog-box {
+    position: relative;
+    display:flex;
+    
+}
+
+.blog {
+    margin-right: 35px;
+
+}
+.blog-img {
+    position: relative;
+    object-fit: cover;
+    width: 240px;
+    height: 240px;
+    border: 1px solid #030303;
+
+}
+.blog-content{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100%px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    display: block;
+}
+
+.intro-section.common-section {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}

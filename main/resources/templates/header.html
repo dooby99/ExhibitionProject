@@ -1,0 +1,77 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}">
+
+<head th:insert="~{config :: configFragment}"></head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">BODA</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/main">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/community">커뮤니티</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/notice">공지사항</a>
+            </li>
+          </ul>
+          <!-- 로그인 | 회원가입 -->
+          <div>
+            <ol class="breadcrumb" >
+              <th:block th:if="${session.userInfo==null}">
+                <li class="breadcrumb-item text-end">
+                  <a href="/login" >login</a>
+                </li>
+              </th:block>
+              <th:block th:unless="${session.userInfo==null}">
+                <li class="breadcrumb-item text-end" >
+                  <!-- link add -->
+                  <a href="/logout">logout</a>
+                </li>
+                <li class="breadcrumb-item text-end" th:text="${session.userInfo.email}" style="color:white; vertical-align:middle;"></li>
+
+              </th:block>
+            </ol>
+          </div>
+
+          <form class="d-flex" role="search" id="search-form" method="get" action="/search-page">
+            <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    name="query"
+                    th:value="${query}">
+            <button
+                    class="btn btn-outline-success"
+                    type="submit"
+                    onclick="location.href='/search-page?query=${query}'">Search
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+</body>
+</html>

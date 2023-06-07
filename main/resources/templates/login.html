@@ -1,0 +1,54 @@
+<!doctype html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default_layout}"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="~{config :: configFragment}"></head>
+<link rel="stylesheet" href="/css/login.css">
+<script src="/js/login.js"></script>
+<body>
+<th:block layout:fragment="header" th:include="~{@{/header}}"></th:block>
+<div class="login-wrapper" id="login-wrapper2">
+    <h2>Login</h2>
+    <form method="post" action="/loginPost" id="login-form">
+        <div class="input_row">
+            <img src="/img/person_.png" alt="" class="person_img">
+            <input type="text" id="LOGIN_ID" name="email" placeholder="Email">
+        </div>
+        <div class="input_row">
+            <img src="/img/key_.png" alt="" class="key_img">
+            <input type="password" id="LOGIN_PW" name="password" placeholder="Password">
+        </div>
+        <label for="remember-check" class="remember-check">
+            <input type="checkbox" id="remember-check">
+            아이디 저장하기
+        </label>
+        <input type="submit" value="Login" id="LOGIN_BTN">
+        <div class="join">
+            <a href="/join">회원가입</a>
+        </div>
+    </form>
+    <hr>
+    <div style="text-align:center">
+        <a>소셜 계정으로 간편 로그인/회원가입</a>
+    </div>
+    <div class="sns_login">
+        <a th:href="${kakaoLoginUrl}" class="btn-sns"><img src="/img/kakao_login_medium_narrow.png" alt="" class="btn_img"></a>
+
+                <a th:href="${naverLoginUrl}" class="btn-sns"><img src="/img/naver_btnG_완성형.png" alt="" class="btn_img"></a>
+            </div>
+        </div>
+
+    </body>
+
+
+<script type="text/javascript">
+
+
+</script>
+
+</html>
